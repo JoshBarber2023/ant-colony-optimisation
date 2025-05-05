@@ -17,10 +17,10 @@ class AntColony:
         self.rho = rho  # pheromone evaporation rate
         self.Q = Q  # pheromone deposit factor
         self.num_cities = len(cities)
-        self.pheromone = np.ones((self.num_cities, self.num_cities))  # Initialize pheromone matrix
+        self.pheromone = np.ones((self.num_cities, self.num_cities))  # Initialise pheromone matrix
         self.heuristic = np.zeros((self.num_cities, self.num_cities))  # Heuristic (1/distance)
 
-        # Initialize heuristic matrix
+        # Initialise heuristic matrix
         for i in range(self.num_cities):
             for j in range(self.num_cities):
                 if i != j:
@@ -36,7 +36,7 @@ class AntColony:
             else:
                 probabilities.append(0)
 
-        # Normalize the probabilities to sum to 1
+        # Normalise the probabilities to sum to 1
         total = sum(probabilities)
         if total == 0:
             return random.choice([i for i in range(self.num_cities) if i not in visited_cities])
@@ -162,7 +162,7 @@ class AntColony:
 # Example cities (x, y) positions
 cities = [(random.randint(0, 10), random.randint(0, 10)) for _ in range(10)]
 
-# Initialize Ant Colony Optimization
+# Initialise Ant Colony Optimisation
 aco = AntColony(cities=cities, num_ants=6, num_iterations=100, alpha=1, beta=2, rho=0.1, Q=100)
 
 # Run ACO to find the best path
